@@ -1,0 +1,68 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog?characterEncoding=UTF-8&useSSL=false
+    username: ENC(Jj9EiWU2ydbCb+mp5u+bTXXDbU/34lcKcdCvSULoeOraCCICab685zzpUuMpM5Ec)
+    password: ENC(2CcNrJlIaWSXpy/awVf4qau92BVz5Ai/wt+RoOrhw6L5zXmpzz9euo4BSON2mQpU)
+    driver-class-name: com.mysql.jdbc.Driver
+  jackson:
+    default-property-inclusion: non_null
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true   # 开启mybatis驼峰式命名规则
+    cache-enabled: true
+    default-statement-timeout: 30
+  mapper-locations: classpath:mapper/*.xml
+
+logging:
+  level:
+    root: debug
+jwt:
+  secret: blog@Login(Auth}*^31)&lingxiao% # 登录校验的密钥
+  pubKeyPath: D:\\rsakey\\rsa.pub  # 公钥地址
+  priKeyPath: D:\\rsakey\\rsa.pri  # 私钥地址
+  expire: 30 # 过期时间,单位分钟
+  cookieName: BLOG_COOKIE # cookie的名字
+  cookieMaxAge: 30 # cookie的有效时长
+
+cors:
+  allowedOrigins:
+    - "http://blog.lingxiaomz.top"
+    - "http://www.lingxiaomz.top"
+    - "http://api.lingxiaomz.top"
+    - "http://blog.test.lingxiaomz.top"
+    - "https://blog.lingxiaomz.top"
+    - "https://www.lingxiaomz.top"
+    - "https://api.lingxiaomz.top"
+  allowedMethods:
+    - "OPTIONS"
+    - "HEAD"
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "DELETE"
+    - "PATCH"
+  ignorePaths:
+    - "/css/**"
+    - "/js/**"
+    - "/config/**"
+    - "/index.html"
+    - "/img/**"
+    - "/fonts/**"
+    - "/favicon.ico"
+    - "/verifyCode"
+    - "/upload/bingImage"
+    - "/upload/bingImage/random"
+    - "/image/**"
+    - "/user/register"
+    - "/user/email/**"
+    - "/swagger-ui.html"
+    - "/swagger-resources/*"
+    - "/webjars/*"
+    - "/v2/api-docs*"
+    - "/doc.html"
+    - "/error/**"
+    - "/front/**"
